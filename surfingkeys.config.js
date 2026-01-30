@@ -27,10 +27,8 @@ api.unmap("e", /mail.google.com/); // archive
 api.unmap("a", /mail.google.com/); // select all
 api.unmap("*", /mail.google.com/); // select all (* + a)
 
-// Google Colaboratory and Jupyter notebook
-settings.blocklistPattern =
-  /docs.google.com|notebookes\/ipynb|colab.research.google.com/i;
-
+// Reference: https://github.com/brookhong/Surfingkeys/issues/63
+settings.blocklistPattern = /https:\/\/(colab\.google|prism\.openai\.com|docs\.google\.com)\/.*/i;
 // Netflix
 api.unmap("f", /netflix.com/); // fullscreen
 
