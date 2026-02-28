@@ -27,6 +27,16 @@ api.unmap("e", /mail.google.com/); // archive
 api.unmap("a", /mail.google.com/); // select all
 api.unmap("*", /mail.google.com/); // select all (* + a)
 
+//fresh rss
+api.unmap("j", /bflat/frss/); // next mail
+api.unmap("k", /bflat/frss/); // prev mail
+api.unmap("s", /bflat/frss/); // add star
+api.unmap("g", /bflat/frss/); // go
+api.unmap("i", /bflat/frss/); // inbox
+api.unmap("e", /bflat/frss/); // archive
+api.unmap("a", /bflat/frss/); // select all
+api.unmap("*", /bflat/frss/); // select all (* + a)
+
 // Reference: https://github.com/brookhong/Surfingkeys/issues/63
 settings.blocklistPattern = /https:\/\/(colab\.google|prism\.openai\.com|docs\.google\.com)\/.*/i;
 // Netflix
