@@ -38,7 +38,7 @@ api.unmap("a", /bflat/); // select all
 api.unmap("*", /bflat/); // select all (* + a)
 
 // Reference: https://github.com/brookhong/Surfingkeys/issues/63
-settings.blocklistPattern = /https:\/\/(colab\.research\.google|prism\.openai\.com|docs\.google\.com)\/.*/i;
+settings.blocklistPattern = /https:\/\/(colab\.research\.google\.com|prism\.openai\.com|docs\.google\.com)\/.*/i;
 // Netflix
 api.unmap("f", /netflix.com/); // fullscreen
 
