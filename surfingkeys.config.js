@@ -97,12 +97,12 @@ function openAndUnstar(count) {
 }
 
 // 5件開く (o)
-mapkey('o', '#11Open 5 favorites and unstar', function() {
+api.mapkey('o', '#11Open 5 favorites and unstar', function() {
     openAndUnstar(5);
 }, {domain: frssUrl});
 
 // 10件開く (O)
-mapkey('O', '#11Open 10 favorites and unstar', function() {
+api.mapkey('O', '#11Open 10 favorites and unstar', function() {
     openAndUnstar(10);
 }, {domain: frssUrl});
 
