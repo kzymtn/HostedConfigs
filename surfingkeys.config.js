@@ -32,28 +32,28 @@ const frssUrl = /bflat\/frss/;
 
 // 1. ナビゲーション関連
 // FreshRSS の「次の記事」「前の記事」を有効にするため、Surfingkeys のスクロールを解除
-unmap('j', frssUrl);
-unmap('k', frssUrl);
-unmap('n', frssUrl);
-unmap('p', frssUrl);
+api.unmap('j', frssUrl);
+api.unmap('k', frssUrl);
+api.unmap('n', frssUrl);
+api.unmap('p', frssUrl);
 
 // 2. 記事操作・トグル関連
 // m: 既読, f: お気に入り, v: 元記事を開く, A: 全て既読
-unmap('m', frssUrl); 
-unmap('f', frssUrl); // ※Surfingkeys の Hints (リンククリック) 機能と衝突するため解除
-unmap('v', frssUrl); // ※Surfingkeys の Visual Mode と衝突するため解除
-unmap('A', frssUrl);
+api.unmap('m', frssUrl); 
+api.unmap('f', frssUrl); // ※Surfingkeys の Hints (リンククリック) 機能と衝突するため解除
+api.unmap('v', frssUrl); // ※Surfingkeys の Visual Mode と衝突するため解除
+api.unmap('A', frssUrl);
 
 // 3. 更新・画面遷移関連
 // r: フィード更新, g: 各種移動 (gn, gp, ga, gs 等のプレフィックス)
-unmap('r', frssUrl);
-unmap('g', frssUrl);
+api.unmap('r', frssUrl);
+api.unmap('g', frssUrl);
 
 // 4. 表示モード切り替え (任意)
 // 1, 2, 3 などの数字キーで表示形式を切り替える場合
-unmap('1', frssUrl);
-unmap('2', frssUrl);
-unmap('3', frssUrl);
+api.unmap('1', frssUrl);
+api.unmap('2', frssUrl);
+api.unmap('3', frssUrl);
 
 // Reference: https://github.com/brookhong/Surfingkeys/issues/63
 settings.blocklistPattern = /https:\/\/(colab\.research\.google\.com|prism\.openai\.com|docs\.google\.com)\/.*/i;
