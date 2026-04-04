@@ -55,14 +55,13 @@ api.unmap('1', frssUrl);
 api.unmap('2', frssUrl);
 api.unmap('3', frssUrl);
 
-// FreshRSS 用の設定 (http://bflat/frss/)
-const frssUrl = /bflat\/frss/;
-
 /**
  * お気に入り記事を一定数開き、お気に入り解除する関数
  * @param {number} count - 開く記事の数
  */
-function openAndUnstar(count) {
+api.unmap('o', frssUrl);
+api.unmap('O', frssUrl);
+'function openAndUnstar(count) {
     // お気に入り（Star付き）の記事コンテナを取得
     // FreshRSS のテーマやバージョンによりクラス名が異なる場合があるため、複数のセレクタに対応
     const favorites = Array.from(document.querySelectorAll('.flux.favorite, .flux.fav, .flux_header.favorite'))
