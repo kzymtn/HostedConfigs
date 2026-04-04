@@ -59,9 +59,7 @@ api.unmap('3', frssUrl);
  * お気に入り記事を一定数開き、お気に入り解除する関数
  * @param {number} count - 開く記事の数
  */
-api.unmap('o', frssUrl);
-api.unmap('O', frssUrl);
-'function openAndUnstar(count) {
+function openAndUnstar(count) {
     // お気に入り（Star付き）の記事コンテナを取得
     // FreshRSS のテーマやバージョンによりクラス名が異なる場合があるため、複数のセレクタに対応
     const favorites = Array.from(document.querySelectorAll('.flux.favorite, .flux.fav, .flux_header.favorite'))
@@ -96,12 +94,12 @@ api.unmap('O', frssUrl);
 }
 
 // 5件開く (o)
-api.mapkey('o', '#11Open 5 favorites and unstar', function() {
+api.mapkey(',o', '#11Open 5 favorites and unstar', function() {
     openAndUnstar(5);
 }, {domain: frssUrl});
 
 // 10件開く (O)
-api.mapkey('O', '#11Open 10 favorites and unstar', function() {
+api.mapkey(',O', '#11Open 10 favorites and unstar', function() {
     openAndUnstar(10);
 }, {domain: frssUrl});
 
