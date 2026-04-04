@@ -55,6 +55,57 @@ api.unmap('1', frssUrl);
 api.unmap('2', frssUrl);
 api.unmap('3', frssUrl);
 
+// FreshRSS 用の設定 (http://bflat/frss/)
+const frssUrl = /bflat\/frss/;
+
+/**
+ * お気に入り記事を一定数開き、お気に入り解除する関数
+ * @param {number} count - 開く記事の数
+ */
+function openAndUnstar(count) {
+    // お気に入り（Star付き）の記事コンテナを取得
+    // FreshRSS のテーマやバージョンによりクラス名が異なる場合があるため、複数のセレクタに対応
+    const favorites = Array.from(document.querySelectorAll('.flux.favorite, .flux.fav, .flux_header.favorite'))
+                           .slice(0, count);
+
+    if (favorites.length === 0) {
+        Front.showBanner("お気に入り記事はありません。");
+        return;
+    }
+
+    favorites.forEach(article => {
+        const link = article.querySelector('.title a');
+        const starBtn = article.querySelector('.star');
+
+        if (link && starBtn) {
+            // 1. お気に入り解除（Starボタンをクリック）
+            starBtn.click();
+            
+            // 2. 新規タブ（バックグラウンド）で記事を開く
+            // window.open よりも Surfingkeys の RUNTIME を使う方がポップアップブロックを回避しやすい
+            RUNTIME("openLink", {
+                url: link.href,
+                tab: {
+                    tabbed: true,
+                    active: false // バックグラウンドで開く
+                }
+            });
+        }
+    });
+    
+    Front.showBanner(`${favorites.length}件の記事を開き、お気に入りを解除しました。`);
+}
+
+// 5件開く (o)
+mapkey('o', '#11Open 5 favorites and unstar', function() {
+    openAndUnstar(5);
+}, {domain: frssUrl});
+
+// 10件開く (O)
+mapkey('O', '#11Open 10 favorites and unstar', function() {
+    openAndUnstar(10);
+}, {domain: frssUrl});
+
 // Reference: https://github.com/brookhong/Surfingkeys/issues/63
 settings.blocklistPattern = /https:\/\/(colab\.research\.google\.com|prism\.openai\.com|docs\.google\.com)\/.*/i;
 // Netflix
