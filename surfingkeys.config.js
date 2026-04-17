@@ -104,7 +104,7 @@ api.mapkey(',O', '#11Open 10 favorites and unstar', function() {
 }, {domain: frssUrl});
 
 // Reference: https://github.com/brookhong/Surfingkeys/issues/63
-settings.blocklistPattern = /https:\/\/(localhost.*|colab\.research\.google\.com|prism\.openai\.com|docs\.google\.com)\/.*/i;
+settings.blocklistPattern = /https?:\/\/(localhost.*|colab\.research\.google\.com|prism\.openai\.com|docs\.google\.com)\/.*/i;
 // Netflix
 api.unmap("f", /netflix.com/); // fullscreen
 
